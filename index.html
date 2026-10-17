@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#000000"><link rel="manifest" href="manifest.json">
+<title>طارق برگر</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@500;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
+<style>*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Naskh Arabic",Tahoma,"Segoe UI",sans-serif;font-size:17px;line-height:1.7;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.num{font-family:var(--numf,"Segoe UI",Arial,sans-serif);font-variant-numeric:lining-nums tabular-nums;direction:ltr;unicode-bidi:isolate;display:inline-block}
+header{background:var(--head);color:var(--headInk);padding:10px 16px 0;border-bottom:var(--hb);position:sticky;top:0;z-index:20}
+.top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.brand{flex:1;margin:0;font-family:"Noto Nastaliq Urdu","Noto Naskh Arabic",serif;font-weight:700;font-size:28px;line-height:2;color:var(--brandc)}
+.brand small{display:block;font-family:"Noto Naskh Arabic",Tahoma,serif;font-weight:400;font-size:13px;line-height:1.2;color:var(--headInk);opacity:.7;margin-top:-6px;padding-bottom:6px}
+.net,.pend{font-size:12px;padding:1px 10px;border-radius:20px;border:1px solid var(--line)}
+.net.on{color:var(--ok)}.net.off{color:#f4a261}.pend{border:0;opacity:.8}
+.ibtn{font:inherit;font-size:15px;background:transparent;color:var(--headInk);border:1px solid var(--acc);border-radius:20px;padding:1px 14px;cursor:pointer}
+nav{display:flex;gap:2px;overflow-x:auto;margin-top:4px}
+nav button{flex:1 0 auto;background:transparent;border:0;color:var(--headInk);opacity:.75;font:inherit;font-size:16px;padding:8px 16px;cursor:pointer;border-radius:8px 8px 0 0;border-bottom:3px solid transparent}
+nav button.on{opacity:1;font-weight:700;background:var(--navon);color:var(--navonc);border-bottom-color:var(--acc)}
+main{max-width:1240px;margin:0 auto;padding:14px}
+.tab{display:none}.tab.on{display:block}
+.grid{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:900px){.grid.two{grid-template-columns:1.6fr 1fr}.grid.eq{grid-template-columns:1fr 1fr}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--rad,10px);padding:14px}
+.panel h2{margin:0 0 10px;font-size:19px;color:var(--h2)}
+.chips{display:flex;gap:6px;overflow-x:auto;margin:10px 0;padding-bottom:2px}
+.chip{flex:0 0 auto;font:inherit;font-size:15px;padding:2px 14px;border-radius:20px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.chip.on{background:var(--acc);border-color:var(--acc);color:var(--onAcc);font-weight:700}
+.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+summary{cursor:pointer;font-weight:700;color:var(--h2);font-size:18px}details[open]>summary{margin-bottom:10px}label{display:block;margin-bottom:2px}
+#rpt{display:none}@media print{body.prt{background:#fff!important}body.prt #app,body.prt #toast{display:none!important}body.prt *{visibility:visible}body.prt #rpt{display:block;color:#000;background:#fff;padding:8mm;font-size:13px;line-height:1.6}body.prt #rpt table{width:100%;border-collapse:collapse;margin-bottom:8px}body.prt #rpt th,body.prt #rpt td{border:1px solid #999;padding:3px 6px;color:#000;text-align:start}body.prt #rpt h1{font-size:24px;margin:0}body.prt #rpt h2{font-size:16px;margin:12px 0 4px;color:#000}}
+h3.sec{margin:14px 0 8px;padding:5px 12px;border-radius:8px;background:var(--acc);color:var(--onAcc);font-size:16px}h3.sec:first-child{margin-top:4px}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.col h3{margin:0 0 8px;padding:6px 4px;text-align:center;font-size:15px;background:var(--acc);color:var(--onAcc);border-radius:8px}
+.col .item{width:100%;margin-bottom:8px}
+.item{position:relative;display:block;background:var(--input);border:1px solid var(--line);border-radius:10px;padding:10px 6px;text-align:center;cursor:pointer;font:inherit;color:var(--ink);user-select:none;transition:transform .1s,border-color .15s}
+.item:hover{border-color:var(--acc)}.item:active{transform:scale(.96)}
+.item b{display:block;font-size:15px;line-height:1.35;font-family:Tahoma,"Segoe UI",sans-serif;direction:ltr}
+.item .p{display:block;color:var(--accT);font-weight:700;font-size:17px}
+.badge{position:absolute;top:-8px;left:-6px;background:var(--acc);color:var(--onAcc);border-radius:50%;min-width:26px;height:26px;line-height:26px;font-size:14px;font-style:normal;font-weight:700}
+.seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:8px 0}
+.seg button{flex:1;font:inherit;font-size:15px;background:transparent;border:0;color:var(--ink);padding:5px 6px;cursor:pointer}
+.seg button.on{background:var(--acc);color:var(--onAcc);font-weight:700}
+input,select,textarea{font:inherit;font-size:16px;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--input);color:var(--ink);max-width:100%}
+input:focus,select:focus,button:focus-visible{outline:2px solid var(--acc);outline-offset:1px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:8px}.row>input{flex:1;min-width:100px}
+.crow{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px dashed var(--line)}
+.crow .n{flex:1;font-family:Tahoma,"Segoe UI",sans-serif;direction:ltr;text-align:right;font-size:15px}
+.q{display:flex;align-items:center;gap:8px}.amt{min-width:54px;text-align:start}
+.sm{width:30px;height:30px;border-radius:50%;border:1px solid var(--acc);background:transparent;color:var(--ink);font-size:18px;cursor:pointer;line-height:1;padding:0}
+.sums{margin:10px 0;padding:10px 12px;background:var(--input);border-radius:8px}
+.sums>div{display:flex;justify-content:space-between}
+.sums .grand{font-size:24px;font-weight:700;color:var(--accT);border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
+.btn{font:inherit;font-size:16px;padding:9px 16px;border-radius:8px;border:1px solid var(--acc);background:var(--acc);color:var(--onAcc);cursor:pointer;font-weight:700}
+.btn.alt{background:transparent;color:var(--accT);font-weight:400}.btn.danger{background:transparent;color:var(--danger);border-color:var(--danger);font-weight:400}
+.btn:active{filter:brightness(.85)}.btns{display:flex;gap:8px;flex-wrap:wrap}.btns .btn{flex:1;white-space:nowrap}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:14px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:var(--rad,10px);padding:10px 14px;border-top:3px solid var(--acc)}
+.stat p{margin:0;color:var(--muted);font-size:14px}.stat strong{font-size:25px;color:var(--accT)}.stat.neg strong{color:var(--danger)}
+table{width:100%;border-collapse:collapse}th,td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:start;vertical-align:middle}
+th{color:var(--muted);font-weight:600;font-size:14px}.scroll{overflow-x:auto}.low td{color:var(--danger);font-weight:700}
+.folders{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.bar{height:12px;background:var(--acc);border-radius:3px;min-width:2px}
+.wk{display:grid;grid-template-columns:60px 1fr 64px;gap:8px;align-items:center;margin:4px 0}
+.order-card{border:1px solid var(--line);border-radius:8px;padding:8px 10px;margin:8px 0;background:var(--input)}
+.muted{color:var(--muted)}.hide{display:none!important}
+.warn{background:var(--danger);color:#fff;border-radius:8px;padding:8px 12px;margin-bottom:12px}
+.toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--head);color:var(--headInk);padding:10px 20px;border-radius:30px;border:1px solid var(--acc);opacity:0;pointer-events:none;transition:opacity .2s;z-index:99}
+.toast.show{opacity:1}
+#modal{position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;align-items:center;justify-content:center;padding:14px;z-index:50}#modal.on{display:flex}
+.mbox{background:var(--panel);border:1px solid var(--acc);border-radius:12px;padding:16px;max-width:420px;width:100%;max-height:92vh;overflow:auto}
+.rc{background:#fff;color:#000;padding:12px;font-size:14px;line-height:1.55;border-radius:6px;margin-bottom:12px}
+.rc h3{margin:0;text-align:center;font-size:22px}.rc .c{text-align:center}
+.rc td{padding:2px 4px;border-bottom:1px dotted #888;color:#000}.rc .t{display:flex;justify-content:space-between}.rc .g{font-size:18px;font-weight:700;border-top:2px solid #000;margin-top:4px;padding-top:4px}
+@media(max-width:560px){.cols{gap:6px}.item b{font-size:13px}.item{padding:8px 3px}.col h3{font-size:13px}.brand{font-size:24px}}
+@media print{body *{visibility:hidden}.rc,.rc *{visibility:visible}.rc{position:absolute;top:0;right:0;width:76mm;margin:0}}
+
+:root{--bg:#0b0b0d;--panel:#16161a;--ink:#fff;--muted:#a3a3ae;--line:#2b2b33;--acc:#d90429;--accT:#ff4d5e;--onAcc:#fff;--h2:#fff;--head:#000;--headInk:#fff;--brandc:#fff;--hb:3px solid #d90429;--navon:#16161a;--navonc:#fff;--danger:#ff6b6b;--ok:#2fbf71;--input:#202026;--rad:12px}body{background:radial-gradient(circle at 100% 0,#2a0508 0,#0b0b0d 38%) fixed}.brand{text-shadow:0 0 18px #d9042960}.sums .grand{color:#fff}</style></head><body><div id="app"></div><div id="rpt"></div><script>(()=>{"use strict";
+// Supabase: when ready, paste the project URL and anon key here
+const SB_URL="",SB_KEY="";
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const sum=(a,f)=>a.reduce((x,y)=>x+f(y),0);
+const ymd=d=>new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10);
+const today=()=>ymd(new Date());
+const N=v=>`<span class="num">${v}</span>`;
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("show"),1800)}
+const B=(n,a,f,s)=>({c:"برگر",n,v:[a,f,s]}),M=(c,n,p)=>({c,n,p});
+const DEF=[B("Anda Shami Burger",200,260,310),B("Double Anda Shami Burger",260,320,370),B("D. Anda D. Shami Burger",300,360,420),B("Double Anda Shami (Chicken)",370,420,470),B("Chicken Shami Mix",300,360,420),B("Chicken Burger",310,380,420),B("Chicken Patty Burger",280,320,370),B("Chicken Patty (Cheese)",320,370,420),B("Special Chicken Burger",370,420,470),B("Lapeta Burger",260,320,370),B("Chicken Lapeta Double Anda",370,420,470),B("Chicken Boti Burger",300,370,420),B("Zinger Burger",320,370,420),
+M("شوارما","Small Chicken Shawarma",220),M("شوارما","Medium Chicken Shawarma",270),M("شوارما","Large Chicken Shawarma",340),M("شوارما","Jumbo Shawarma",370),M("شوارما","Zinger Shawarma",320),M("شوارما","Special Medium Zinger",370),M("شوارما","Small Platter (4 pcs)",380),M("شوارما","Large Platter (4 pcs)",520),
+M("فرائز","Simple Masala Fries",200),M("فرائز","Half Masala Fries",250),M("فرائز","Full Masala Fries",300),M("فرائز","Half Loaded Fries",340),M("فرائز","Full Loaded Fries",470),M("فرائز","Half Load of Fries",380),M("فرائز","Full Load of Fries",500),
+M("سینڈوچ","Chicken Sandwich",320),M("سینڈوچ","Special Large Chicken Sandwich",420),M("سینڈوچ","Fish Sandwich",370),
+M("مشروبات","Regular Bottle",80),M("مشروبات","Half Litre",120),M("مشروبات","1.5 Litre",200),M("کومبو ڈیلز","Zinger Burger + Fries + Drink",450),M("کومبو ڈیلز","Chicken Burger + Fries + Drink",430),M("کومبو ڈیلز","Large Shawarma + Fries + Drink",520)];
+let S=Object.assign({shop:"طارق برگر",phone:"",addr:"",tax:0,svc:0,foot:"شکریہ! دوبارہ تشریف لائیں",pin:"",menu:DEF},JSON.parse(localStorage.tb_s||"{}"));
+const keep=()=>localStorage.tb_s=JSON.stringify(S);
+const fix=m=>{if(m.v){m.p=m.v[0];m.f=m.v[1];m.s=m.v[2];delete m.v}if(m.f===undefined)m.f=(m.c=="شوارما"||m.c=="سینڈوچ")?m.p+60:null;if(m.s===undefined)m.s=null};S.menu.forEach(fix);
+let held=JSON.parse(localStorage.tb_h||"[]");
+const keepH=()=>{localStorage.tb_h=JSON.stringify(held);$("#hn").textContent=held.length};
+// storage
+const DBP=new Promise((res,rej)=>{const r=indexedDB.open("pos",2);r.onupgradeneeded=()=>{const d=r.result;["orders","purchases","stock"].forEach(n=>{if(!d.objectStoreNames.contains(n))d.createObjectStore(n,{keyPath:"id"})})};r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)});
+const tx=async(st,m,fn)=>{const d=await DBP;return new Promise((res,rej)=>{const t=d.transaction(st,m),r=fn(t.objectStore(st));t.oncomplete=()=>res(r&&r.result);t.onerror=()=>rej(t.error)})};
+const put=(st,o)=>tx(st,"readwrite",s=>s.put(o)),all=st=>tx(st,"readonly",s=>s.getAll()),del=(st,id)=>tx(st,"readwrite",s=>s.delete(id)),clrSt=st=>tx(st,"readwrite",s=>s.clear());
+const uid=p=>p+Date.now()+Math.random().toString(36).slice(2,6);
+// labels
+const TABS=[["order","آرڈر"],["dash","ڈیش بورڈ"],["rec","ریکارڈ"],["menu","مینو اور ریٹ"],["stock","خریداری"],["set","سیٹنگز"]],PROT=["dash","rec","menu","stock","set"];
+const TYPES=[["dine","ڈائن اِن"],["take","ٹیک اوے"],["deliv","ڈیلیوری"]],PAYS=[["cash","کیش"],["card","کارڈ"],["jazz","جاز کیش"],["easy","ایزی پیسہ"]];
+const lab=(L,k)=>(L.find(x=>x[0]==k)||[0,k])[1];
+const VT=["سادہ (بغیر فرائز)","فرائز کے ساتھ","سلاد کے ساتھ"],SUF=[""," + فرائز"," + سلاد"];
+const seg=(act,L,cur)=>L.map(([v,t])=>`<button data-act="${act}" data-v="${v}" class="${v==cur?"on":""}">${t}</button>`).join("");
+// shell
+$("#app").innerHTML=`<header><div class="top"><h1 class="brand"><span id="bn"></span><small>آرڈر اور حساب کا نظام</small></h1><span id="pend" class="pend"></span><span id="st" class="net"></span><button class="ibtn" data-act="held">روکے ہوئے (<span id="hn">0</span>)</button></div>
+<nav id="nav">${TABS.map(([k,v],i)=>`<button data-t="${k}" class="${i?"":"on"}">${v}</button>`).join("")}</nav></header>
+<main>
+<section class="tab on" id="t-order"><div class="grid two"><div class="panel"><input id="q" type="search" placeholder="آئٹم تلاش کریں" style="width:100%"><div class="chips" id="cats"></div><div id="items"></div></div>
+<div class="panel"><h2>آرڈر نمبر ${N('<span id="no">1</span>')}</h2><div class="seg" id="tseg"></div>
+<div id="dv" class="hide"><div class="row"><input id="fCust" placeholder="گاہک کا نام"><input id="fPhone" placeholder="فون نمبر" inputmode="tel"></div><div class="row"><input id="fAddr" placeholder="پتہ"></div></div>
+<div id="cart"></div>
+<div class="row" style="margin-top:8px"><input id="fDisc" type="number" min="0" placeholder="رعایت" style="max-width:120px"><div class="seg" id="dseg" style="margin:0"></div></div>
+<div class="sums" id="sums"></div><div class="seg" id="pseg"></div>
+<div class="row" id="cashRow"><input id="fCash" type="number" min="0" placeholder="وصول شدہ رقم (کیش)"></div>
+<div class="row"><input id="fNote" placeholder="ہدایت (مثلاً کم مرچ)"></div>
+<div class="btns" style="margin-bottom:8px"><button class="btn" data-act="saveP">محفوظ کریں اور بل</button><button class="btn alt" data-act="saveO">صرف محفوظ</button></div>
+<div class="btns"><button class="btn alt" data-act="hold">روکیں</button><button class="btn danger" data-act="clear">صاف</button></div></div></div></section>
+<section class="tab" id="t-dash"><div id="low"></div><div class="stats" id="stats"></div><div class="row"><input type="date" id="dd"></div>
+<div class="grid eq"><div class="panel"><h2>پچھلے 7 دن کی سیل</h2><div id="week"></div></div><div class="panel"><h2>کیا کیا بکا</h2><div class="scroll"><table id="top"></table></div></div><div class="panel"><h2>ادائیگی کا طریقہ</h2><table id="pm"></table></div><div class="panel"><h2>آرڈر کی قسم</h2><table id="tm"></table></div></div></section>
+<section class="tab" id="t-rec"><div class="panel"><h2>PDF ڈاؤن لوڈ</h2><div class="row"><label>سے</label><input type="date" id="pdA"><label>تک</label><input type="date" id="pdB"></div><button class="btn" style="width:100%" data-act="pdf">PDF بنائیں</button><p class="muted" style="margin:6px 0 0;font-size:14px">کھلنے والی ونڈو میں "PDF محفوظ کریں" چنیں۔</p></div><div class="panel" style="margin-top:14px"><h2>پرانا ڈیٹا صاف کریں</h2><p class="muted">اوپر چنی ہوئی تاریخوں کا ڈیٹا پہلے بیک اپ فائل میں ڈاؤن لوڈ ہو گا، پھر آپ کی اجازت سے مٹ جائے گا۔ اس کے بعد نیا ڈیٹا معمول کے مطابق محفوظ ہوتا رہے گا۔ PDF چاہیے تو پہلے "PDF بنائیں" دبا لیں۔</p><div class="btns"><button class="btn danger" data-act="clean">ڈاؤن لوڈ کر کے صاف کریں</button><button class="btn danger" data-act="cleanOld">آج سے پہلے کا سارا ڈیٹا</button></div></div>
+<div class="panel" style="margin-top:14px"><h2>تاریخ چنیں</h2><div class="row"><input type="date" id="rd"><button class="btn alt" data-act="rtoday">آج</button></div><div class="muted">جن دنوں کا ریکارڈ موجود ہے:</div><div class="folders" id="fol"></div></div><div class="panel" style="margin-top:14px"><div class="scroll"><table id="rt"></table></div></div></section>
+<section class="tab" id="t-menu"><div class="grid two"><div class="panel"><h2>ریٹ لسٹ</h2><div class="scroll"><table id="mt"></table></div></div>
+<div class="panel"><h2>نیا آئٹم</h2><div class="row"><input id="mn" placeholder="آئٹم کا نام"><input id="mp" type="number" placeholder="سادہ ریٹ" style="max-width:100px"><input id="mf" type="number" placeholder="فرائز کے ساتھ" style="max-width:110px"><input id="ms" type="number" placeholder="سلاد کے ساتھ" style="max-width:110px"></div><div class="row"><select id="mc" style="flex:1"></select><input id="mc2" placeholder="یا نئی کیٹیگری"></div><button class="btn" style="width:100%" data-act="addM">آئٹم شامل کریں</button></div></div></section>
+<section class="tab" id="t-stock"><div class="grid eq"><div class="panel"><h2>خریداری</h2>
+<div class="row"><input type="date" id="pdt"></div><div class="row"><input id="pn" placeholder="کیا خریدا (گوشت، آلو...)"></div>
+<div class="row"><input id="pq" placeholder="کتنا (مثلاً 10 کلو)"><input id="pr" type="number" placeholder="کل رقم" style="max-width:130px"></div>
+<button class="btn" style="width:100%;margin-bottom:10px" data-act="addP">محفوظ کریں</button><div class="scroll"><table id="pt"></table></div></div>
+<details class="panel"><summary>اسٹاک کی گنتی (اختیاری)</summary><div class="row"><input id="sn" placeholder="چیز"><input id="sq" type="number" step="any" placeholder="مقدار" style="max-width:100px"></div><div class="row"><input id="sm" type="number" step="any" placeholder="اتنا رہ جائے تو بتائیں (اختیاری)"></div>
+<button class="btn" style="width:100%;margin-bottom:10px" data-act="addS">شامل کریں</button><div class="scroll"><table id="stt"></table></div></details></div></section>
+<section class="tab" id="t-set"><div class="grid eq">
+<div class="panel"><h2>دکان</h2><label>دکان کا نام</label><div class="row"><input id="s1"></div><label>فون نمبر</label><div class="row"><input id="s2" inputmode="tel"></div><label>ٹیکس % (نہیں لگانا تو 0)</label><div class="row"><input id="s4" type="number"></div><button class="btn" style="width:100%" data-act="saveS">محفوظ کریں</button></div>
+<div class="panel"><h2>پاس ورڈ</h2><p class="muted">لگانے کے بعد صرف آرڈر اسکرین کھلی رہے گی، باقی ٹیبز پاس ورڈ مانگیں گے۔</p><div class="row"><input id="pin" type="password" inputmode="numeric" maxlength="6" placeholder="نیا پاس ورڈ (4 سے 6 عدد)"><button class="btn" data-act="setPin">لگائیں</button></div><button class="btn danger" style="width:100%" data-act="noPin">پاس ورڈ ہٹائیں</button></div>
+<details class="panel"><summary>مزید سیٹنگز</summary><div class="row"><input id="s3" placeholder="پتہ"></div><div class="row"><input id="s6" placeholder="بل کے آخر کی سطر"></div><div class="row"><label>سروس چارج % (ڈائن اِن)</label><input id="s5" type="number" style="max-width:80px"></div><button class="btn" style="width:100%;margin-bottom:12px" data-act="saveS">محفوظ کریں</button>
+<h2>بیک اپ</h2><div class="btns"><button class="btn alt" data-act="bk">بیک اپ لیں</button><button class="btn alt" data-act="rs">بحال کریں</button><button class="btn alt" data-act="sync">سنک</button></div><input type="file" id="rf" accept=".json" hidden>
+<h2 style="margin-top:14px">سب مٹائیں</h2><button class="btn danger" style="width:100%" data-act="wipe">تمام ڈیٹا مٹائیں</button></details></div></section>
+</main><div id="modal"></div><div class="toast" id="toast"></div>`;
+// state
+let T={type:"dine",pay:"cash",dm:"rs",cart:{}},cat="all",cnt=0,unlocked=false,curTab="order";
+function openM(h){$("#modal").innerHTML=`<div class="mbox">${h}</div>`;$("#modal").classList.add("on")}
+const closeM=()=>$("#modal").classList.remove("on");
+// order screen
+function cats(){return[...new Set(S.menu.map(m=>m.c))]}
+function itemBtn(n,p){const q=T.cart[n]?T.cart[n].q:0;return `<button class="item" data-act="add" data-n="${esc(n)}" data-p="${p}"><b>${esc(n)}</b><span class="p num">${p}</span>${q?`<i class="badge num">${q}</i>`:""}</button>`}
+const CO=["برگر","سینڈوچ","شوارما","فرائز","مشروبات"],CC="کومبو ڈیلز",MODES=[["all","سب"],["f","فرائز کے ساتھ"],["s","سلاد کے ساتھ"],["c",CC]];
+function renderItems(){
+ $("#cats").innerHTML=MODES.map(([k,t])=>`<button class="chip ${k==cat?"on":""}" data-act="cat" data-v="${k}">${t}</button>`).join("");
+ const q=$("#q").value.trim().toLowerCase(),ent=[];
+ S.menu.forEach(m=>{if(m.c==CC){ent.push({c:m.c,k:"c",n:m.n,p:m.p});return}
+  ent.push({c:m.c,k:"all",n:m.n,p:m.p});if(m.f!=null)ent.push({c:m.c,k:"f",n:m.n+SUF[1],p:m.f});if(m.s!=null)ent.push({c:m.c,k:"s",n:m.n+SUF[2],p:m.s})});
+ const L=q?ent.filter(e=>e.n.toLowerCase().includes(q)):ent.filter(e=>e.k==cat);
+ const cs=[...new Set(L.map(e=>e.c))].sort((a,b)=>{const i=CO.indexOf(a),j=CO.indexOf(b);return(i<0?99:i)-(j<0?99:j)});
+ $("#items").innerHTML=cs.length?cs.map(c=>`<h3 class="sec">${esc(c)}</h3><div class="items">${L.filter(e=>e.c==c).map(e=>itemBtn(e.n,e.p)).join("")}</div>`).join(""):`<p class="muted">کوئی آئٹم نہیں ملا۔</p>`}
+function calc(){const L=Object.values(T.cart),sub=sum(L,x=>x.p*x.q),dv=+$("#fDisc").value||0,disc=Math.min(T.dm=="pct"?Math.round(sub*dv/100):dv,sub),svc=T.type=="dine"?Math.round((sub-disc)*S.svc/100):0,tax=Math.round((sub-disc+svc)*S.tax/100),total=sub-disc+svc+tax,paid=+$("#fCash").value||0;return{L,sub,disc,svc,tax,total,paid,chg:T.pay=="cash"&&paid>total?paid-total:0}}
+function renderCart(){const c=calc();
+ $("#cart").innerHTML=c.L.length?c.L.map(x=>`<div class="crow"><span class="n">${esc(x.n)}</span><span class="q"><button class="sm" data-act="dec" data-n="${esc(x.n)}">−</button>${N(x.q)}<button class="sm" data-act="inc" data-n="${esc(x.n)}">+</button></span><span class="amt num">${x.p*x.q}</span></div>`).join(""):`<p class="muted">آرڈر شروع کرنے کے لیے آئٹم پر ٹیپ کریں۔</p>`;
+ const r=(a,b,g)=>`<div class="${g||""}"><span>${a}</span>${N(b)}</div>`;
+ $("#sums").innerHTML=r("ذیلی کل",c.sub)+(c.disc?r("رعایت","-"+c.disc):"")+(c.svc?r("سروس چارج",c.svc):"")+(c.tax?r("ٹیکس",c.tax):"")+r("کل رقم",c.total,"grand")+(c.chg?r("واپسی رقم",c.chg):"");
+ $("#tseg").innerHTML=seg("type",TYPES,T.type);$("#pseg").innerHTML=seg("pay",PAYS,T.pay);$("#dseg").innerHTML=seg("dm",[["rs","Rs"],["pct","%"]],T.dm);
+ $("#dv").classList.toggle("hide",T.type!="deliv");$("#cashRow").classList.toggle("hide",T.pay!="cash");$("#no").textContent=cnt+1;renderItems()}
+function reset(){T.cart={};["fDisc","fCash","fNote","fCust","fPhone","fAddr"].forEach(i=>$("#"+i).value="");renderCart()}
+async function saveOrder(pr){const c=calc();if(!c.L.length)return toast("پہلے آئٹم شامل کریں");
+ const o={id:uid("o"),no:++cnt,ts:Date.now(),date:today(),items:c.L.map(({n,p,q})=>({n,p,q})),sub:c.sub,disc:c.disc,svc:c.svc,tax:c.tax,total:c.total,pay:T.pay,typ:T.type,paid:c.paid,chg:c.chg,note:$("#fNote").value.trim(),cust:T.type=="deliv"?{name:$("#fCust").value,phone:$("#fPhone").value,addr:$("#fAddr").value}:null,synced:0};
+ await put("orders",o);reset();updPend();sync();if(pr)receipt(o);else toast("آرڈر "+o.no+" محفوظ ہو گیا")}
+function receipt(o){openM(`<div class="rc"><h3>${esc(S.shop)}</h3><div class="c">${esc(S.phone)} ${esc(S.addr)}</div><div class="c">آرڈر نمبر ${N(o.no)} — ${lab(TYPES,o.typ)}<br>${new Date(o.ts).toLocaleString("en-GB")}</div>
+ <table style="width:100%">${o.items.map(x=>`<tr><td>${esc(x.n)}</td><td>${N(x.q+" × "+x.p)}</td><td>${N(x.q*x.p)}</td></tr>`).join("")}</table>
+ <div class="t"><span>ذیلی کل</span>${N(o.sub)}</div>${o.disc?`<div class="t"><span>رعایت</span>${N("-"+o.disc)}</div>`:""}${o.svc?`<div class="t"><span>سروس چارج</span>${N(o.svc)}</div>`:""}${o.tax?`<div class="t"><span>ٹیکس</span>${N(o.tax)}</div>`:""}
+ <div class="t g"><span>کل</span>${N("Rs "+o.total)}</div><div class="t"><span>ادائیگی</span><span>${lab(PAYS,o.pay)}</span></div>${o.chg?`<div class="t"><span>واپسی</span>${N(o.chg)}</div>`:""}${o.note?`<div>${esc(o.note)}</div>`:""}
+ ${o.cust?`<div>${esc(o.cust.name)} ${esc(o.cust.phone)}<br>${esc(o.cust.addr)}</div>`:""}<div class="c" style="margin-top:6px">${esc(S.foot)}</div></div><div class="btns"><button class="btn" data-act="print">پرنٹ</button><button class="btn alt" data-act="closeM">بند کریں</button></div>`)}
+// held
+function heldM(){openM(`<h2>روکے ہوئے آرڈر</h2>${held.length?held.map((h,i)=>`<div class="order-card"><b>${Object.values(h.cart).map(x=>esc(x.n)+" ×"+x.q).join("، ")}</b><div class="btns" style="margin-top:6px"><button class="btn" data-act="resume" data-i="${i}">کھولیں</button><button class="btn danger" data-act="dropH" data-i="${i}">حذف</button></div></div>`).join(""):`<p class="muted">کوئی آرڈر رکا ہوا نہیں۔</p>`}<button class="btn alt" style="width:100%" data-act="closeM">بند کریں</button>`)}
+// data helpers
+const ordersOn=async d=>(await all("orders")).filter(o=>o.date==d).sort((a,b)=>b.ts-a.ts);
+function agg(O){const m={};O.forEach(o=>o.items.forEach(i=>{const b=m[i.n]||(m[i.n]={q:0,a:0});b.q+=i.q;b.a+=i.q*i.p}));return Object.entries(m).sort((a,b)=>b[1].q-a[1].q)}
+function mix(O,key,L){const m={};O.forEach(o=>{const b=m[o[key]]||(m[o[key]]={n:0,a:0});b.n++;b.a+=o.total});const R=Object.entries(m);return `<tr><th>قسم</th><th>آرڈر</th><th>رقم</th></tr>`+(R.length?R.map(([k,v])=>`<tr><td>${lab(L,k)}</td><td>${N(v.n)}</td><td>${N(v.a)}</td></tr>`).join(""):`<tr><td colspan="3" class="muted">کوئی ڈیٹا نہیں</td></tr>`)}
+async function dash(){const d=$("#dd").value=$("#dd").value||today(),A=await all("orders"),O=A.filter(o=>o.date==d),P=(await all("purchases")).filter(p=>p.date==d),sales=sum(O,o=>o.total),cost=sum(P,p=>p.total),pf=sales-cost;
+ const st=(a,v,x)=>`<div class="stat ${x||""}"><p>${a}</p><strong>${N(v)}</strong></div>`;
+ $("#stats").innerHTML=st("کل سیل","Rs "+sales)+st("آرڈرز",O.length)+st("بکے ہوئے آئٹم",sum(O,o=>sum(o.items,i=>i.q)))+st("خریداری","Rs "+cost)+st("منافع","Rs "+pf,pf<0?"neg":"")+st("منافع کی شرح",(sales?(pf/sales*100).toFixed(1):0)+"%")+st("اوسط آرڈر","Rs "+(O.length?Math.round(sales/O.length):0));
+ const R=agg(O),mx=R.length?R[0][1].q:1;
+ $("#top").innerHTML=`<tr><th>آئٹم</th><th>تعداد</th><th>رقم</th><th style="width:25%"></th></tr>`+(R.length?R.map(([n,v])=>`<tr><td>${esc(n)}</td><td>${N(v.q)}</td><td>${N(v.a)}</td><td><div class="bar" style="width:${v.q/mx*100}%"></div></td></tr>`).join(""):`<tr><td colspan="4" class="muted">اس تاریخ پر کوئی سیل نہیں۔</td></tr>`);
+ $("#pm").innerHTML=mix(O,"pay",PAYS);$("#tm").innerHTML=mix(O,"typ",TYPES);
+ const days=[...Array(7)].map((_,i)=>{const x=new Date();x.setDate(x.getDate()-6+i);return ymd(x)}),tv=days.map(k=>sum(A.filter(o=>o.date==k),o=>o.total)),wm=Math.max(...tv,1);
+ $("#week").innerHTML=days.map((k,i)=>`<div class="wk">${N(k.slice(5))}<div class="bar" style="width:${tv[i]/wm*100}%"></div>${N(tv[i])}</div>`).join("");
+ const lo=(await all("stock")).filter(s=>s.qty<=s.min);$("#low").innerHTML=lo.length?`<div class="warn">کم اسٹاک: ${lo.map(s=>esc(s.name)).join("، ")}</div>`:""}
+async function recs(){$("#pdA").value=$("#pdA").value||today();$("#pdB").value=$("#pdB").value||today();const d=$("#rd").value=$("#rd").value||today(),A=await all("orders"),O=A.filter(o=>o.date==d).sort((a,b)=>b.ts-a.ts),ds={};A.forEach(o=>ds[o.date]=(ds[o.date]||0)+1);
+ $("#fol").innerHTML=Object.keys(ds).sort().reverse().slice(0,45).map(k=>`<button class="chip ${k==d?"on":""}" data-act="pick" data-v="${k}">${N(k)} (${N(ds[k])})</button>`).join("");
+ $("#rt").innerHTML=`<tr><th>نمبر</th><th>وقت</th><th>آئٹمز</th><th>کل</th><th>ادائیگی</th><th></th></tr>`+(O.length?O.map(o=>`<tr><td>${N(o.no)}</td><td>${N(new Date(o.ts).toLocaleTimeString("en-GB",{hour:"2-digit",minute:"2-digit"}))}</td><td>${o.items.map(i=>esc(i.n)+" ×"+i.q).join("، ")}</td><td>${N(o.total)}</td><td>${lab(PAYS,o.pay)}</td><td style="white-space:nowrap"><button class="chip" data-act="rp" data-id="${o.id}">بل</button> <button class="chip" data-act="ro" data-id="${o.id}">حذف</button></td></tr>`).join("")+`<tr><td colspan="3"><b>کل (${O.length} آرڈر)</b></td><td colspan="3"><b>${N("Rs "+sum(O,o=>o.total))}</b></td></tr>`:`<tr><td colspan="6" class="muted">اس تاریخ پر کوئی آرڈر نہیں۔</td></tr>`)}
+function menuT(){$("#mc").innerHTML=[...new Set([...CO,CC,...cats()])].map(c=>`<option>${esc(c)}</option>`).join("");
+ $("#mt").innerHTML=`<tr><th>آئٹم</th><th>سادہ</th><th>فرائز کے ساتھ</th><th>سلاد کے ساتھ</th><th></th></tr>`+S.menu.map((m,i)=>`<tr><td>${esc(m.n)}<br><small class="muted">${esc(m.c)}</small></td>`+["p","f","s"].map(k=>`<td><input type="number" value="${m[k]==null?"":m[k]}" placeholder="—" style="width:70px" data-mi="${i}" data-mk="${k}"></td>`).join("")+`<td><button class="chip" data-act="rmM" data-i="${i}">ہٹائیں</button></td></tr>`).join("")}
+async function stockT(){const d=$("#pdt").value=$("#pdt").value||today(),P=(await all("purchases")).filter(p=>p.date==d),K=await all("stock");
+ $("#pt").innerHTML=`<tr><th>سامان</th><th>مقدار</th><th>رقم</th><th></th></tr>`+(P.length?P.map(p=>`<tr><td>${esc(p.name)}</td><td>${esc(p.note||(p.qty?p.qty+" "+(p.unit||""):""))}</td><td>${N(p.total)}</td><td><button class="chip" data-act="dP" data-id="${p.id}">حذف</button></td></tr>`).join("")+`<tr><td colspan="2"><b>کل خرچہ</b></td><td colspan="2"><b>${N("Rs "+sum(P,p=>p.total))}</b></td></tr>`:`<tr><td colspan="4" class="muted">اس تاریخ پر کوئی خریداری نہیں۔</td></tr>`);
+ $("#stt").innerHTML=`<tr><th>چیز</th><th>مقدار</th><th>حد</th><th></th></tr>`+K.map(s=>`<tr class="${s.qty<=s.min?"low":""}"><td>${esc(s.name)}</td><td><input type="number" step="any" value="${s.qty}" style="width:72px" data-sid="${s.id}"></td><td>${N(s.min)}</td><td><button class="chip" data-act="dS" data-id="${s.id}">حذف</button></td></tr>`).join("")}
+function setT(){$("#s1").value=S.shop;$("#s2").value=S.phone;$("#s3").value=S.addr;$("#s4").value=S.tax;$("#s5").value=S.svc;$("#s6").value=S.foot}
+function brand(){$("#bn").textContent=S.shop;document.title=S.shop}
+function go(t){if(S.pin&&PROT.includes(t)&&!unlocked)return pinM(()=>go(t));curTab=t;
+ $$(".tab").forEach(e=>e.classList.toggle("on",e.id=="t-"+t));$$("#nav button").forEach(b=>b.classList.toggle("on",b.dataset.t==t));
+ ({dash,rec:recs,menu:menuT,stock:stockT,set:setT,order:renderCart})[t]()}
+function pinM(cb){pinM.cb=cb;openM(`<h2>پاس ورڈ لکھیں</h2><div class="row"><input id="pi" type="password" inputmode="numeric" style="flex:1"></div><div class="btns"><button class="btn" data-act="tryPin">کھولیں</button><button class="btn alt" data-act="closeM">منسوخ</button></div>`);setTimeout(()=>$("#pi")&&$("#pi").focus(),50)}
+// sync
+let syncing=false;
+async function updPend(){if(!SB_URL){$("#pend").textContent="";return}const n=(await all("orders")).filter(o=>!o.synced).length+(await all("purchases")).filter(o=>!o.synced).length;$("#pend").textContent=n?n+" سنک کے منتظر":""}
+async function sync(manual){if(syncing)return;if(!SB_URL||!SB_KEY){if(manual)toast("سنک ابھی سیٹ نہیں ہوا");return}if(!navigator.onLine){if(manual)toast("آف لائن: بعد میں سنک ہو گا");return}
+ syncing=true;try{for(const st of["orders","purchases"]){const rows=(await all(st)).filter(r=>!r.synced);for(let i=0;i<rows.length;i+=200){const ch=rows.slice(i,i+200),r=await fetch(SB_URL+"/rest/v1/"+st,{method:"POST",headers:{apikey:SB_KEY,Authorization:"Bearer "+SB_KEY,"Content-Type":"application/json",Prefer:"resolution=merge-duplicates,return=minimal"},body:JSON.stringify(ch.map(x=>{if(st=="purchases")return{id:x.id,date:x.date,name:x.name,note:x.note||(x.qty?x.qty+" "+(x.unit||""):""),total:x.total};const c={...x};delete c.synced;return c}))});
+  if(!r.ok)throw new Error(await r.text());for(const x of ch){x.synced=1;await put(st,x)}}}if(manual)toast("سنک ہو گیا")}catch(e){if(manual)alert("سنک ناکام: "+e.message)}syncing=false;updPend()}
+function net(){const s=$("#st");s.textContent=navigator.onLine?"آن لائن":"آف لائن";s.className="net "+(navigator.onLine?"on":"off");if(navigator.onLine)sync()}
+addEventListener("afterprint",()=>document.body.classList.remove("prt"));addEventListener("online",net);addEventListener("offline",net);
+// events
+const A={
+ add:b=>{const n=b.dataset.n;(T.cart[n]=T.cart[n]||{n,p:+b.dataset.p,q:0}).q++;navigator.vibrate&&navigator.vibrate(12);renderCart()},
+ inc:b=>{T.cart[b.dataset.n].q++;renderCart()},dec:b=>{const x=T.cart[b.dataset.n];if(--x.q<=0)delete T.cart[b.dataset.n];renderCart()},
+ cat:b=>{cat=b.dataset.v;$("#q").value="";renderItems()},type:b=>{T.type=b.dataset.v;renderCart()},pay:b=>{T.pay=b.dataset.v;renderCart()},dm:b=>{T.dm=b.dataset.v;renderCart()},
+ saveP:()=>saveOrder(true),saveO:()=>saveOrder(false),clear:()=>{if(Object.keys(T.cart).length&&confirm("آرڈر صاف کریں؟"))reset()},
+ hold:()=>{if(!Object.keys(T.cart).length)return toast("آرڈر خالی ہے");held.push({cart:T.cart,type:T.type,pay:T.pay});keepH();reset();toast("آرڈر روک دیا")},
+ held:heldM,resume:b=>{const h=held.splice(+b.dataset.i,1)[0];T.cart=h.cart;T.type=h.type;T.pay=h.pay;keepH();closeM();go("order")},dropH:b=>{held.splice(+b.dataset.i,1);keepH();heldM()},
+ closeM,print:()=>window.print(),tryPin:()=>{if($("#pi").value==S.pin){unlocked=true;closeM();pinM.cb()}else{toast("پاس ورڈ غلط ہے");$("#pi").value=""}},
+ pdf:async()=>{let a=$("#pdA").value||today(),b=$("#pdB").value||a;if(a>b)[a,b]=[b,a];
+ const O=(await all("orders")).filter(o=>o.date>=a&&o.date<=b).sort((x,y)=>x.ts-y.ts),P=(await all("purchases")).filter(p=>p.date>=a&&p.date<=b).sort((x,y)=>x.date<y.date?-1:1),sales=sum(O,o=>o.total),cost=sum(P,p=>p.total),days={};
+ const dy=k=>days[k]||(days[k]={n:0,s:0,c:0});O.forEach(o=>{const x=dy(o.date);x.n++;x.s+=o.total});P.forEach(p=>{dy(p.date).c+=p.total});
+ const R=agg(O),dk=Object.keys(days).sort(),qt=p=>esc(p.note||(p.qty?p.qty+" "+(p.unit||""):""));
+ $("#rpt").innerHTML=`<h1>${esc(S.shop)}</h1><p>رپورٹ: ${N(a)} سے ${N(b)} تک</p>
+ <table><tr><th>کل سیل</th><th>آرڈرز</th><th>خریداری</th><th>منافع</th></tr><tr><td>${N(sales)}</td><td>${N(O.length)}</td><td>${N(cost)}</td><td>${N(sales-cost)}</td></tr></table>
+ <h2>روزانہ حساب</h2><table><tr><th>تاریخ</th><th>آرڈرز</th><th>سیل</th><th>خریداری</th><th>منافع</th></tr>${dk.map(k=>`<tr><td>${N(k)}</td><td>${N(days[k].n)}</td><td>${N(days[k].s)}</td><td>${N(days[k].c)}</td><td>${N(days[k].s-days[k].c)}</td></tr>`).join("")}</table>
+ <h2>کیا کیا بکا</h2><table><tr><th>آئٹم</th><th>تعداد</th><th>رقم</th></tr>${R.map(([n,v])=>`<tr><td>${esc(n)}</td><td>${N(v.q)}</td><td>${N(v.a)}</td></tr>`).join("")}</table>
+ ${P.length?`<h2>خریداری</h2><table><tr><th>تاریخ</th><th>سامان</th><th>مقدار</th><th>رقم</th></tr>${P.map(p=>`<tr><td>${N(p.date)}</td><td>${esc(p.name)}</td><td>${qt(p)}</td><td>${N(p.total)}</td></tr>`).join("")}</table>`:""}
+ ${O.length&&O.length<=600?`<h2>تمام آرڈر</h2><table><tr><th>تاریخ</th><th>نمبر</th><th>آئٹمز</th><th>کل</th></tr>${O.map(o=>`<tr><td>${N(o.date)}</td><td>${N(o.no)}</td><td>${o.items.map(i=>esc(i.n)+" ×"+i.q).join("، ")}</td><td>${N(o.total)}</td></tr>`).join("")}</table>`:O.length?`<p>آرڈر بہت زیادہ ہیں، اس لیے صرف خلاصہ دیا گیا ہے۔ کم دن چنیں تو پورے آرڈر بھی آئیں گے۔</p>`:""}`;
+ toast('کھلنے والی ونڈو میں "PDF محفوظ کریں" چنیں');document.body.classList.add("prt");setTimeout(()=>window.print(),300)},
+ clean:async()=>{let a=$("#pdA").value||today(),b=$("#pdB").value||a;if(a>b)[a,b]=[b,a];
+ const O=(await all("orders")).filter(o=>o.date>=a&&o.date<=b),P=(await all("purchases")).filter(p=>p.date>=a&&p.date<=b);
+ if(!O.length&&!P.length)return toast("اس مدت میں کوئی ڈیٹا نہیں");
+ const bl=new Blob([JSON.stringify({orders:O,purchases:P})],{type:"application/json"}),l=document.createElement("a");l.href=URL.createObjectURL(bl);l.download="backup-"+a+"_"+b+".json";l.click();
+ setTimeout(async()=>{if(confirm("بیک اپ فائل ڈاؤن لوڈ ہو گئی ہے؟\n"+O.length+" آرڈر اور "+P.length+" خریداری مٹا دی جائیں؟")){for(const o of O)await del("orders",o.id);for(const p of P)await del("purchases",p.id);cnt=Math.max(0,...(await ordersOn(today())).map(o=>o.no));toast("پرانا ڈیٹا صاف ہو گیا");recs();updPend()}},900)},
+ cleanOld:()=>{const y=new Date();y.setDate(y.getDate()-1);$("#pdA").value="2000-01-01";$("#pdB").value=ymd(y);A.clean()},
+ rtoday:()=>{$("#rd").value=today();recs()},pick:b=>{$("#rd").value=b.dataset.v;recs()},
+ rp:async b=>receipt((await all("orders")).find(o=>o.id==b.dataset.id)),ro:async b=>{if(confirm("یہ آرڈر حذف کریں؟")){await del("orders",b.dataset.id);recs();updPend()}},
+ addM:()=>{const n=$("#mn").value.trim(),p=+$("#mp").value,c=$("#mc2").value.trim()||$("#mc").value;if(!n||!p)return toast("نام اور ریٹ لکھیں");S.menu.push({c,n,p,f:+$("#mf").value||null,s:+$("#ms").value||null});keep();$("#mn").value=$("#mp").value=$("#mc2").value=$("#mf").value=$("#ms").value="";renderItems();menuT();toast("آئٹم شامل ہو گیا")},
+ rmM:b=>{if(confirm("آئٹم ہٹائیں؟")){S.menu.splice(+b.dataset.i,1);keep();menuT()}},
+ addP:async()=>{const n=$("#pn").value.trim(),a=+$("#pr").value;if(!n||!a)return toast("سامان اور رقم لکھیں");await put("purchases",{id:uid("p"),date:$("#pdt").value||today(),name:n,note:$("#pq").value.trim(),total:a,synced:0});$("#pn").value=$("#pq").value=$("#pr").value="";stockT();updPend();sync();toast("خریداری محفوظ ہو گئی")},
+ dP:async b=>{if(confirm("حذف کریں؟")){await del("purchases",b.dataset.id);stockT()}},
+ addS:async()=>{const n=$("#sn").value.trim();if(!n)return toast("چیز کا نام لکھیں");await put("stock",{id:uid("s"),name:n,unit:"",qty:+$("#sq").value||0,min:+$("#sm").value||0});$("#sn").value=$("#sq").value=$("#sm").value="";stockT()},
+ dS:async b=>{if(confirm("حذف کریں؟")){await del("stock",b.dataset.id);stockT()}},
+ saveS:()=>{S.shop=$("#s1").value.trim()||"طارق برگر";S.phone=$("#s2").value;S.addr=$("#s3").value;S.tax=+$("#s4").value||0;S.svc=+$("#s5").value||0;S.foot=$("#s6").value;keep();brand();toast("سیٹنگز محفوظ ہو گئیں")},
+ setPin:()=>{const v=$("#pin").value;if(!/^\d{4,6}$/.test(v))return toast("4 سے 6 عدد لکھیں");S.pin=v;keep();$("#pin").value="";toast("پاس ورڈ لگ گیا")},noPin:()=>{S.pin="";keep();toast("پاس ورڈ ہٹ گیا")},
+ bk:async()=>{const b=new Blob([JSON.stringify({S,orders:await all("orders"),purchases:await all("purchases"),stock:await all("stock")})],{type:"application/json"}),a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="backup-"+today()+".json";a.click()},
+ rs:()=>$("#rf").click(),sync:()=>sync(true),
+ wipe:async()=>{if(confirm("سب کچھ مٹا دیں؟ یہ واپس نہیں آئے گا")&&confirm("کیا آپ واقعی یقین رکھتے ہیں؟")){for(const s of["orders","purchases","stock"])await clrSt(s);localStorage.removeItem("tb_s");localStorage.removeItem("tb_h");location.reload()}}};
+document.addEventListener("click",e=>{const t=e.target.closest("[data-t]");if(t)return go(t.dataset.t);const b=e.target.closest("[data-act]");if(b&&A[b.dataset.act])A[b.dataset.act](b)});
+document.addEventListener("change",async e=>{const t=e.target;
+ if(t.dataset.mi!=null){const m=S.menu[+t.dataset.mi],k=t.dataset.mk;m[k]=t.value===""&&k!="p"?null:+t.value;keep();renderItems()}
+ else if(t.dataset.sid){const s=(await all("stock")).find(x=>x.id==t.dataset.sid);s.qty=+t.value;await put("stock",s);stockT()}
+ else if(t.id=="dd")dash();else if(t.id=="rd")recs();else if(t.id=="pdt")stockT();
+ else if(t.id=="rf"){try{const j=JSON.parse(await t.files[0].text());for(const o of j.orders||[])await put("orders",o);for(const p of j.purchases||[])await put("purchases",p);for(const s of j.stock||[])await put("stock",s);if(j.S){S=Object.assign(S,j.S);keep()}toast("بحال ہو گیا");setTimeout(()=>location.reload(),600)}catch(x){toast("بیک اپ فائل درست نہیں")}}});
+$("#q").addEventListener("input",renderItems);$("#fDisc").addEventListener("input",renderCart);$("#fCash").addEventListener("input",renderCart);
+$("#modal").addEventListener("click",e=>{if(e.target.id=="modal")closeM()});
+// start
+(async()=>{brand();net();keepH();cnt=Math.max(0,...(await ordersOn(today())).map(o=>o.no));renderCart();updPend()})();
+if("serviceWorker"in navigator)navigator.serviceWorker.register("sw.js");
+})();
+</script></body></html>
